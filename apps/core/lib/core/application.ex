@@ -10,7 +10,8 @@ defmodule Core.Application do
     children = [
       # Starts a worker by calling: Core.Worker.start_link(arg)
       # {Core.Worker, arg}
-      {JM.Repo, []}
+      {JM.Repo, []},
+      {JM.Patients.Workers.Notify, []}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
