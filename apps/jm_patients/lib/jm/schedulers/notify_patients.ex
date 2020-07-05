@@ -30,7 +30,7 @@ defmodule JM.Patients.Schedulers.NotifyPatients do
       Task.start(fn -> JM.Patients.Workers.NotifyPatient.perform(x) end)
     end
 
-    JM.Repo.all(JM.Patient)
+    [] # Fetch all patients from repo that are eligible for receiving welcome notifications
     |> Enum.each(spawn_notify_worker)
   end
 end
